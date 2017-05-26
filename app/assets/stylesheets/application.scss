@@ -1,15 +1,15 @@
 @import "bootstrap";
 
-.container {
-    text-align: left;
+.navbar-header {
+    padding-top: 10px;
+    text-align: inline-block;
 }
 
-.navbar-brand {
-    position: relative;
-    margin: 0;
-    padding: 0;
+.home {
+    float: left;
 }
-.pull-right {
-    display: inline-block;
+
+.navbar-session-options {
     float: right;
+    list-style: none;
 }
