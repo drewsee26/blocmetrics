@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>My Registered Applications</h1>
+        </div>
+        <div class="col-md-4">
+            <%= link_to "New Application", new_registered_application_path, class: 'btn btn-primary' %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <% @regapps.each do |regapp| %>
+                <p><%= link_to regapp.name, registered_application %></p>
+            <% end %>
+        </div>
+    </div>
+</div>
