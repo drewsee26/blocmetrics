@@ -2,6 +2,9 @@
     <div class="jumbotron">
         <h1 class="text-center">BLOCMETRICS</h1>
         <h3 class="text-center">A web analytics tool to rival all others!</h3>
+        <% if user_signed_in? %>
+        <div class="text-center"><%= link_to "My Applications", registered_applications_path, class: 'btn btn-primary' %></div>
+        <% end %>
     </div>
     <div class="col-md-4">
         <h4>Keep track of useful stats in one place.</h4>
