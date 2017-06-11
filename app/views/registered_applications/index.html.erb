@@ -8,5 +8,5 @@
 </div>
 
 <% @regapps.each do |regapp| %>
-    <p><%= link_to regapp.name, registered_applications_path %></p>
+    <div class="application-index"><%= link_to regapp.name, regapp %></p>
 <% end %>
