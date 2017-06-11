@@ -3,6 +3,10 @@ class RegisteredApplicationsController < ApplicationController
         @regapps = RegisteredApplication.all  
     end
     
+    def show
+        @regapp = RegisteredApplication.find(params[:id])
+    end
+    
     def new
         @regapp = RegisteredApplication.new
     end
@@ -19,11 +23,18 @@ class RegisteredApplicationsController < ApplicationController
         end
     end
     
-    def show
-        @regapp = RegisteredApplication.find(params[:id])
-    end
+    
     
     def destroy
+        @regapp = RegisteredApplication.find(params[:id])
+        
+        if @regapp.destroy
+            flash[:notice] = "\"#{@regapp.name}\" was deleted successfully."
+            redirect_to registered_applications_path
+        else
+            flash.now[:alert] = "There was an error deleting this application."
+            render :show
+        end
     end
     
     private 
