@@ -1,4 +1,6 @@
 require 'faker'
+Event.destroy_all
+RegisteredApplication.destroy_all
 
 #Create Registered Applications
 10.times do
@@ -10,13 +12,17 @@ end
 
 applications = RegisteredApplication.all
 
-# Create Events
-20.times do
-    Event.create!(
-        registered_application: applications.sample,
-        event_name: Faker::Internet.slug    
-    )
+# Create Events   
+applications.each do
+    rand(1..4).times do
+        Event.create!(
+            registered_application: applications.sample,
+            event_name: Faker::Internet.slug
+        )
+    end
 end
+
+events = Event.all
 
 puts "Seed finished"
 puts "#{RegisteredApplication.count} applications created"
