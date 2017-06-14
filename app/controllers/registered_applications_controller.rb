@@ -5,6 +5,9 @@ class RegisteredApplicationsController < ApplicationController
     
     def show
         @regapp = RegisteredApplication.find(params[:id])
+        
+        @events = @regapp.events.group_by(&:event_name)
+        
     end
     
     def new
@@ -22,8 +25,6 @@ class RegisteredApplicationsController < ApplicationController
             render :new
         end
     end
-    
-    
     
     def destroy
         @regapp = RegisteredApplication.find(params[:id])

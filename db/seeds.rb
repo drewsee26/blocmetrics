@@ -1,7 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
+Event.destroy_all
+RegisteredApplication.destroy_all
+
+#Create Registered Applications
+10.times do
+    RegisteredApplication.create!(
+        name: Faker::App.unique.name,
+        url: Faker::Internet.unique.url
+    )
+end
+
+applications = RegisteredApplication.all
+
+# Create Events   
+applications.each do
+    rand(1..4).times do
+        Event.create!(
+            registered_application: applications.sample,
+            event_name: Faker::Internet.slug
+        )
+    end
+end
+
+events = Event.all
+
+puts "Seed finished"
+puts "#{RegisteredApplication.count} applications created"
+puts "#{Event.count} events created"
