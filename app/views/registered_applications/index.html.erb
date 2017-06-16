@@ -1,12 +1,15 @@
-<div class="row">
-    <div class="col-md-8">
+<div class="applications-header">
+    <div class="pull-left">
         <h1>My Registered Applications</h1>
     </div>
-    <div class="col-md-4">
+    <div class="pull-right action-button">
         <%= link_to "New Application", new_registered_application_path, class: 'btn btn-primary' %>
     </div>
 </div>
-
-<% @regapps.each do |regapp| %>
-    <div class="application-index"><%= link_to regapp.name, regapp %></p>
-<% end %>
+<div class="row">
+    <div class="col-md-12">
+        <% @regapps.each do |regapp| %>
+            <div class="application-index"><%= link_to regapp.name, regapp %></p>
+        <% end %>
+    </div>
+</div>
