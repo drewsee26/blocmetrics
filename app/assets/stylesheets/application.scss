@@ -1,15 +1,10 @@
 @import "bootstrap";
 
-.navbar-header {
-    padding-top: 10px;
-    text-align: inline-block;
-}
-
-.home {
+.navbar-brand {
     float: left;
+    padding-left: 10px;
 }
-
-.navbar-session-options {
-    float: right;
-    list-style: none;
+.navbar-right {
+    padding-right: 20px;
+    padding-top: 10px;
 }
