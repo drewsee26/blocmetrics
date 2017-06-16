@@ -22,6 +22,7 @@ gem 'bootstrap-sass'
 gem 'figaro', '1.0'
 gem 'devise'
 gem 'bootstrap'
+gem 'chartkick'
 
 group :development, :test do
   gem 'byebug'
